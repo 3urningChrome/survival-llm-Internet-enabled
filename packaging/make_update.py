@@ -13,11 +13,16 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
-RELEASES = "https://github.com/anonnerdfrenzy/survival-llm/releases/download"
+
+RELEASE_REPO = os.environ.get(
+    "RELEASE_REPO",
+    "3urningChrome/survival-llm-Internet-enabled",
+)
+RELEASES = f"https://github.com/{RELEASE_REPO}/releases/download"
 
 version = open(os.path.join(HERE, "VERSION")).read().strip()
 update = {"version": version, "date": datetime.date.today().isoformat(), "notes": sys.argv[1:]}
-for key, name in (("mac", "Survival-LLM-mac.zip"), ("windows", "Survival-LLM-windows.zip")):
+for key, name in (("mac", "Survival-LLM-Web-Enabled-mac.zip"), ("windows", "Survival-LLM-Web-Enabled-windows.zip")):
     path = os.path.join(REPO, "dist", name)
     digest = hashlib.sha256()
     with open(path, "rb") as f:
