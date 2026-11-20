@@ -14,7 +14,7 @@ import subprocess
 import sys
 from datetime import datetime
 
-REPO = "anonnerdfrenzy/survival-llm"
+REPO = "3urningChrome/survival-llm-Internet-enabled"
 HISTORY = os.path.expanduser("~/.local/share/survival-llm/download-stats.jsonl")
 
 
